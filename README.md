@@ -12,11 +12,13 @@ Run *docker compose* to create and start the Knox container based on this image 
 
 This creates a container named __knox__, and it also creates a bridge network named __knox-docker_knox-test__
 
+The Knox Admin UI will be accessible at https://localhost:8443/gateway/manager/admin-ui/
+
+
 If running the HDP Docker container, and you want this Knox instance to be able to interact with it, it must be connected to this network.
 
     docker network connect knox-docker_knox-test sandbox-hdp
 
-The Knox Admin UI will be accessible at https://localhost:8443/gateway/manager/admin-ui/
 
 
 
