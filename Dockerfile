@@ -17,13 +17,15 @@ FROM openjdk:8-jdk
 
 WORKDIR /usr/local
 
+# Default argument values
 ARG RELEASE_VER=1.1.0
+ARG RELEASE_MIRROR=http://apache.claz.org
 
 # Add the knox user
 RUN useradd -m knox
 
 # Download and unpack the Knox release
-RUN wget http://mirror.reverse.net/pub/apache/knox/1.1.0/knox-$RELEASE_VER.zip
+RUN wget $RELEASE_MIRROR/knox/$RELEASE_VER/knox-$RELEASE_VER.zip
 RUN unzip knox-$RELEASE_VER.zip
 RUN chown -R knox knox-$RELEASE_VER
 

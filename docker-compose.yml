@@ -13,11 +13,19 @@
 # License for the specific language governing permissions and limitations under
 # the License.
 
-version: '3.3'
+version: '3'
 services:
   knox:
-    container_name: knox-1.1.0
-    build: .
+    container_name: knox
+    # Change the image version if the release args are used to specify
+    # a different Knox version
+    image: knox/1.1.0
+    build:
+      context: .
+# Use these build args to specify a different Knox release
+#      args:
+#        - RELEASE_VER=1.0.0
+#        - RELEASE_MIRROR=http://apache.claz.org
     ports:
       - "8443:8443"
     networks:
