@@ -1,4 +1,7 @@
-# Apache Knox 1.1.0 Docker Container
+# Apache Knox Release Docker Container
+
+By default, this Dockerfile creates a container for Apache Knox 1.1.0
+The release version can be modified by adjusting the __RELEASE_VER__ argument
 
 Create and start the Knox container (and the demo LDAP server)
 
