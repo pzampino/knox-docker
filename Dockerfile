@@ -28,10 +28,10 @@ RUN unzip knox-$RELEASE_VER.zip
 RUN chown -R knox knox-$RELEASE_VER
 
 # Create a startup script for the container command
-RUN echo -e '#!/bin/bash\n#\n\nrunuser -l knox -c "/usr/local/knox-'$RELEASE_VER'/bin/knoxcli.sh create-master --master knox"\nrunuser -l knox -c "/usr/local/knox-'$RELEASE_VER'/bin/ldap.sh start"\nrunuser -l knox -c "/usr/local/knox-'$RELEASE_VER'/bin/gateway.sh start"\nrunuser -l knox -c "/usr/local/knox-'$RELEASE_VER'/bin/knoxcli.sh create-alias sandbox.discovery.pwd --value maria_dev"\ntail -f /usr/local/knox-'$RELEASE_VER'/logs/gateway.log' > /usr/local/start-knox.sh
+RUN echo '#!/bin/bash\n#\n\nrunuser -l knox -c "/usr/local/knox-'$RELEASE_VER'/bin/knoxcli.sh create-master --master knox"\nrunuser -l knox -c "/usr/local/knox-'$RELEASE_VER'/bin/ldap.sh start"\nrunuser -l knox -c "/usr/local/knox-'$RELEASE_VER'/bin/gateway.sh start"\nrunuser -l knox -c "/usr/local/knox-'$RELEASE_VER'/bin/knoxcli.sh create-alias sandbox.discovery.pwd --value maria_dev"\ntail -f /usr/local/knox-'$RELEASE_VER'/logs/gateway.log' > /usr/local/start-knox.sh
 
-RUN chmod +x /usr/local/start-knox.sh
+RUN chmod +x start-knox.sh
 
 EXPOSE 8443
 
-CMD ["/bin/bash", "/usr/local/start-knox.sh"]
+CMD ["/bin/bash", "start-knox.sh"]
