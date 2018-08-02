@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  knox:
+    container_name: knox-1.1.0
+    build: .
+    ports:
+      - "8443:8443"
+    networks:
+      - knox-test
+
+networks:
+  knox-test:
