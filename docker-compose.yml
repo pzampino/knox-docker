@@ -19,13 +19,12 @@ services:
     container_name: knox
     # Change the image version if the release args are used to specify
     # a different Knox version
-    image: knox/1.1.0
+    image: knox/${RELEASE_VER}
     build:
       context: .
-# Use these build args to specify a different Knox release
-#      args:
-#        - RELEASE_VER=1.0.0
-#        - RELEASE_MIRROR=http://apache.claz.org
+      args:
+        - RELEASE_VER=${RELEASE_VER}
+        - RELEASE_MIRROR=http://apache.claz.org
     ports:
       - "8443:8443"
     networks:

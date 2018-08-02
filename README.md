@@ -2,9 +2,9 @@
 
 By default, this Dockerfile creates an image for Apache Knox 1.1.0
 
-The release version can be overridden by modifying the following arguments in the __docker-compose__ file:
-  * __RELEASE_VER__ (e.g., 1.0.0)
-  * __RELEASE_MIRROR__ (The default mirror may not need to be overridden)
+The release version can be overridden by modifying the __RELEASE_VER__ value in the __.env__ file.
+
+If a different mirror is needed for the release version, modify the __RELEASE_MIRROR__ argument in the __docker-compose__ file.
 
 Run *docker compose* to create and start the Knox container based on this image (and the demo LDAP server)
 
