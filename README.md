@@ -15,7 +15,9 @@ This creates a container named __knox__, and it also creates a bridge network na
 The Knox Admin UI will be accessible at https://localhost:8443/gateway/manager/admin-ui/
 
 
-If running the HDP Docker container, and you want this Knox instance to be able to interact with it, it must be connected to this network.
+If running other Docker containers, with which this Knox instance must be able to interact, those other containers  must be connected to this network.
+
+For example, if running the [HDP Docker Sandbox](https://hortonworks.com/products/sandbox/), it can be connected to the overlay network using this command:
 
     docker network connect knox-docker_knox-test sandbox-hdp
 
